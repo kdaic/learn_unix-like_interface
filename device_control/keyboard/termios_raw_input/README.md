@@ -1,4 +1,4 @@
-termios input
+termios raw input
 ===
 
 簡易的なキーボード入力プログラム。
