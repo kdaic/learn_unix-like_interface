@@ -121,8 +121,14 @@ int main()
     }
     usleep(5000);
   }
-  // sttyコマンドで端末設定デフォルトに戻す(cooked:デフォルト値に戻す)
+  // sttyコマンドで端末設定デフォルトに戻す
+#ifdef __QNX__
+  // (+edit:デフォルト値に戻す)
+  system("stty +edit");
+#else
+  // (cooked:デフォルト値に戻す)
   system("stty cooked");
+#endif
   std::cout << "End\r" << std::endl;
   exit(0);
 }

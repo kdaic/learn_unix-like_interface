@@ -29,16 +29,14 @@ endif
 LIB_DIR = .
 BIN_DIR = .
 SRC_DIR = .
-SRC_UTIL_DIR = $(SRC_DIR)/util
 
 ##################################################################################
 # test directory
 TEST_SRC_DIR = ./test
-TEST_SRC_UTIL_DIR = $(TEST_SRC_DIR)/util
 
 ##################################################################################
 # include directory
-INCLUDE_DIR = ./include/$(TOP_DIR_NAME)
+INCLUDE_DIR = .
 INCLUDE_PLOG_DIR = ./include/$(TOP_DIR_NAME)/util/plog/include
 INCLUDE_USRLOCAL_DIR = /usr/local/include
 INCLUDE_GTEST_INTERNAL_DIR = /usr/local/include/gtest/internal
@@ -154,18 +152,16 @@ $(TEST_APP): $(TEST_OBJS) $(SLIB_APP)
 
 # make clean
 clean:
-	rm -f $(SLIB_OBJS)
-	rm -f $(LIB_OBJS)
 	rm -f $(EXE_OBJS)
-	rm -f $(TEST_OBJS)
 	rm -f *~ core
 	rm -f $(INCLUDE_DIR)/*~
-	rm -f $(INCLUDE_UTIL_DIR)/*~
 	rm -f $(SRC_DIR)/*~
-	rm -f $(SRC_UTIL_DIR)/*~
+#	rm -f $(SLIB_OBJS)
+#	rm -f $(LIB_OBJS)
+#	rm -f $(TEST_OBJS)
 
 # 全消しするときは make cleanall
 cleanall: clean
-	rm -f $(SLIB_APP)
 	rm -f $(EXE_APP)
-	rm -f $(TEST_APP)
+#	rm -f $(SLIB_APP)
+#	rm -f $(TEST_APP)
